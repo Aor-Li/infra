@@ -1,7 +1,9 @@
 # infra
 My own device infrastructure configuration.
 
-## Motivation
+## Dependency
 In thie repository I am going to reconstruct my nix configurations follow methods below :
 - FlakeParts
-- ImportAll ...
+
+## Reference
+- nixos-unified 
