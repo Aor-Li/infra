@@ -5,15 +5,17 @@ My personal device infrastructure configuration, refactored for the following ch
 
 ## 1. Structure
 
+Overall structure of the nix infrastructure:
+
 ``` markdown
 .
 ├── configs         # configs for specific machines
 │   ├── Amanojaku   # desktop/win11/wsl2/nixos with CUDA as my major work-station (transfer to nixos later)
 │   ├── Bakotsu     # desktop/win11/wsl2/nixos in my company safe-pc
 │   └── Chimi       # mini-pc/nixos as a server
-├── home            # configurations prototypes for home-manager
+├── homes           # configurations prototypes for home-manager
 │   └── aor
-├── host            # configurations prototypes for host
+├── hosts           # configurations prototypes for host
 │   ├── common
 │   ├── desktop
 │   ├── server
@@ -28,4 +30,3 @@ My personal device infrastructure configuration, refactored for the following ch
 ├── templates       # templates used to create new modules
 └── README.md
 ```
-
