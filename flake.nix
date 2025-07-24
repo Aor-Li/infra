@@ -36,10 +36,7 @@
 
   outputs =
     inputs:
-    let
-      inherit (inputs) mylib;
-    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = mylib.readConfigFiles ./configs;
+      imports = (import-tree ./configs);
     };
 }
