@@ -1,16 +1,17 @@
-{ config, pkgs, lib, inputs, ... }:
+{ inputs, ... }:
 {
-  # Bakotsu-specific configuration
-  # This is a desktop/win11/wsl2/nixos environment in company safe-pc
-  
   # System configuration
   networking.hostName = "Bakotsu";
-  
+
   # User configuration
   users.users.aor = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+    ];
     openssh.authorizedKeys.keys = [
       # TODO: Add SSH public keys here
     ];
@@ -32,11 +33,11 @@
     vim
     curl
     wget
-    
+
     # Company work tools
     docker
     docker-compose
-    
+
     # System monitoring
     htop
     iotop

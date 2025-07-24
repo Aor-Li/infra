@@ -1,5 +1,5 @@
 {
-  description = "A flake for aor's Nix Infrastructure.";
+  description = "Aor's Multi-Machine Multi-User Nix Infrastructure.";
 
   inputs = {
     # nix packages
@@ -13,18 +13,33 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nix utilities
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
-
     # sops-nix
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # # hyperland
+    # hyperland
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
+    # nix utilities
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+
+    # custom lib
+    mylib = {
+      url = "./libs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./configs);
+  outputs =
+    inputs:
+    let
+      inherit (inputs) mylib;
+    in
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = mylib.readConfigFiles ./configs;
+    };
 }

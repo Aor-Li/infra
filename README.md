@@ -34,11 +34,3 @@ Overall structure of the nix infrastructure:
 ├── templates   # templates used to create new modules
 └── README.md
 ```
-
-Details:
-### flake.nix
-Global entry that imports all nix files within the repo with ```import-tree```.
-
-### configs
-Specific machine configurations. Currently 
-
