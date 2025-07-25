@@ -10,12 +10,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # wsl
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    # nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    # nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     # sops-nix
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # sops-nix.url = "github:Mic92/sops-nix";
+    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # hyperland
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -24,19 +24,8 @@
     # nix utilities
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
-
-    # custom lib
-    mylib = {
-      url = "./libs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-
+    systems.url = "github:nix-systems/default";
   };
 
-  outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = (import-tree ./configs);
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }

@@ -1,7 +1,7 @@
 # infra
 My personal device infrastructure configuration, refactored for the following characteristics:
 - Support flexible expansion of users and hosts
-- Support both traditional module systems and Dendrix pattern based on flake-parts
+- Support Dendritic pattern based on flake-parts
 
 ## 1. Structure
 
