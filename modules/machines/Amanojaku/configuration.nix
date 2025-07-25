@@ -3,8 +3,7 @@ let
   hostname = "Amanojaku";
 in
 {
-  #flake.nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
-  #  modules = [
-  #  ];
-  #};
+  flake.nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
+    modules = [ ];
+  };
 }
