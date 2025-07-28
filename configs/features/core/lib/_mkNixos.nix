@@ -6,7 +6,7 @@
 let
   prefix = "machines/";
 
-  inherit (flake.meta.host)
+  inherit (inputs.self.meta.host)
     name
     system
     type
@@ -17,8 +17,8 @@ let
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        inputs.flake.modules.nixos.${hostConfig.type}
-        inputs.flake.modules.nixos.${hostConfig.name}
+        inputs.self.modules.nixos.${hostConfig.type}
+        inputs.self.modules.nixos.${hostConfig.name}
         {
           networking.hostName = lib.mkDefault hostConfig.name;
           nixpkgs.hostPlatform = lib.mkDefault hostConfig.system;
