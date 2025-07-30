@@ -1,11 +1,5 @@
 { config, ... }:
 {
-  flake.meta.hosts = {
-    "Amanojaku" = {
-      defaultUser = "aor";
-    };
-  };
-
   flake.modules.nixos."machine/Amanojaku" = {
     imports = [
       config.flake.modules.nixos."host/wsl"
