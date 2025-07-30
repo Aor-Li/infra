@@ -5,7 +5,7 @@
   ...
 }:
 let
-  prefix = "machines/";
+  prefix = "machine/";
 in
 {
   flake = {
