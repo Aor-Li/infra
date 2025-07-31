@@ -1,4 +1,7 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
+let
+  inherit (config) flake;
+in
 {
   flake.modules.nixos."host/wsl" =
     { config, ... }:
@@ -8,6 +11,7 @@
     {
       imports = [
         inputs.nixos-wsl.nixosModules.default
+        flake.modules.nixos."host/common"
       ];
       wsl = {
         enable = true;

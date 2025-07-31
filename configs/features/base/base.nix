@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."host/commom" =
+  flake.modules.nixos."features/base" =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [

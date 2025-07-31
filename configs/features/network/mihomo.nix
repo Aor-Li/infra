@@ -2,11 +2,11 @@
 let
   flake.modules.nixos."features/network/clash-meta" = {
     imports = [
-      clash-meta
+      mohomo
     ];
   };
 
-  clash-meta =
+  mohomo =
     { pkgs, ... }:
     {
       # add clash-meta to the system packages

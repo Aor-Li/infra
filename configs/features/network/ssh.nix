@@ -1,13 +1,13 @@
 {
-  flake.modules.nixos."host/commom".imports = [
+  flake.modules.nixos."feature/network".imports = [
     {
       services.openssh = {
         enable = true;
         settings = {
           X11Forwarding = true;
-          PermitRootLogin = "prohibit-password";
           PasswordAuthentication = true;
           PubkeyAuthentication = true;
+          PermitRootLogin = "prohibit-password";
         };
       };
     }
