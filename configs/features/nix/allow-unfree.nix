@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."host/common" = {
+  flake.modules.nixos."features/nix" = {
     nixpkgs.config.allowUnfree = true;
   };
 }
