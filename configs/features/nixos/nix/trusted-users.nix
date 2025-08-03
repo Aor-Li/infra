@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."features/nix" =
+  flake.modules.nixos."feature/nix" =
     { pkgs, ... }:
     {
       nix.settings.trusted-users = [ "@wheel" ];

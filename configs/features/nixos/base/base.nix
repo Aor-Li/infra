@@ -1,9 +1,10 @@
 {
-  flake.modules.nixos."features/base" =
+  flake.modules.nixos."feature/base" =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
         vim
+        git
         htop
         wget
       ];

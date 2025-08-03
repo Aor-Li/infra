@@ -1,5 +1,5 @@
 {
-  flake.modules.home."homes/gamer" = {
+  flake.modules.homeManager."home/gamer" = {
     imports = [
     ];
   };

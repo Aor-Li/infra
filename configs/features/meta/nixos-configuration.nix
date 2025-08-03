@@ -23,6 +23,9 @@ in
             module
             { networking = { inherit hostName; }; }
           ];
+          specialArgs = {
+            hostConfig = config.flake.meta.machine.${hostName} or {};
+          };
         };
       }
     );

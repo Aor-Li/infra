@@ -1,7 +1,7 @@
 { ... }:
 let
   tailscale_port = 41641;
-  flake.modules.nixos."features/network" =
+  flake.modules.nixos."feature/network" =
     { config, pkgs, ... }:
     {
       # enable tailscale

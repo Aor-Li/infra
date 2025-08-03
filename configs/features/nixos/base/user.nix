@@ -1,9 +1,9 @@
 { config, ... }:
 {
-  flake.modules.nixos."features/base" =
-    { ... }:
+  flake.modules.nixos."feature/base" =
+    { hostConfig, ... }:
     {
-      users.users.${config.flake.meta.owner.username} = {
+      users.users.${hostConfig.owner.username} = {
         isNormalUser = true;
         initialPassword = "";
         extraGroups = [

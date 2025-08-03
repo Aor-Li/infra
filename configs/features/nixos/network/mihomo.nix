@@ -1,6 +1,6 @@
 { ... }:
 let
-  flake.modules.nixos."features/network/clash-meta" = {
+  flake.modules.nixos."feature/network/clash-meta" = {
     imports = [
       mohomo
     ];

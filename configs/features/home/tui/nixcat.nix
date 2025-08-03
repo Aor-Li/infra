@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.home."features/tui/nvim" = 
+  flake.modules.homeManager."feature/tui/nvim" = 
     { config, ... }:
     {
       imports = [ inputs.lazyvim.homeModules.default ];

@@ -1,6 +1,10 @@
+{ config, ... }:
 {
-  flake.modules.home."homes/common" = {
-    imports = [
-    ];
-  };
+  flake.modules.homeManager."home/common" = 
+    { ... }: 
+    {
+      imports = [
+        config.flake.modules.homeManager."feature/base"
+      ];
+    };
 }

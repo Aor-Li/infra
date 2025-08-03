@@ -1,6 +1,8 @@
+{ config, ... }:
 {
-  flake.modules.home."homes/coder" = {
+  flake.modules.homeManager."home/coder" = {
     imports = [
+      config.flake.modules.homeManager."feature/tui"
     ];
   };
 }

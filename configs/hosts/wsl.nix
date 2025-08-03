@@ -4,7 +4,7 @@ let
 in
 {
   flake.modules.nixos."host/wsl" =
-    { config, lib, ... }:
+    { config, lib, hostConfig, ... }:
     let
       inherit (config.networking) hostName;
     in
@@ -16,7 +16,7 @@ in
       wsl = {
         enable = true;
         startMenuLaunchers = true;
-        defaultUser = flake.meta.owner.username;
+        defaultUser = hostConfig.owner.username;
         wslConf.automount.root = "/mnt";
         wslConf.network.hostname = hostName;
       };

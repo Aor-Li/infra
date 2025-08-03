@@ -1,5 +1,5 @@
 {
-  flake.modules.home."features/shell" = 
+  flake.modules.homeManager."feature/shell" = 
     { ... }: {
       programs.bash = {
         enable = true;

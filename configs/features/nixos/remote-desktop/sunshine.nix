@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."features/remote_desktop" =
+  flake.modules.nixos."feature/remote_desktop" =
     { pkgs, ... }:
     {
       environment.systemPackages = [

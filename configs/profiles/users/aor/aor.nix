@@ -1,10 +1,10 @@
 { config, ... }:
 {
-  flake.modules.home."user/aor" = {
+  flake.modules.homeManager."user/aor" = {
     imports = [
-      config.flake.modules.home."home/common"
-      config.flake.modules.home."home/coder"
-      config.flake.modules.home."home/gamer"
+      config.flake.modules.homeManager."home/common"
+      config.flake.modules.homeManager."home/coder"
+      config.flake.modules.homeManager."home/gamer"
     ];
   };
 }
