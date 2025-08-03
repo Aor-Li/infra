@@ -5,11 +5,11 @@
   ...
 }:
 let
-  prefix = "user";
+  prefix = "user/";
 in
 {
   flake.homeConfigurations =
-    config.flake.modules.nixos or { }
+    config.flake.modules.home or { }
     |> lib.filterAttrs (name: _module: lib.hasPrefix prefix name)
     |> lib.mapAttrs' (
       name: module:
@@ -18,7 +18,7 @@ in
       in
       {
         name = username;
-        value = inputs.nixpkgs.lib.homeManagerConfiguration {
+        value = inputs.home-manager.lib.homeManagerConfiguration {
           modules = [
             module
           ];

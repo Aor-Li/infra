@@ -14,8 +14,8 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     # sops-nix
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # sops-nix.url = "github:Mic92/sops-nix";
+    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # # hyperland
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -25,6 +25,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     systems.url = "github:nix-systems/default";
+
+    # import local flakes
+    lazyvim.url = "path:./flakes/lazyvim";
+
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./configs);
