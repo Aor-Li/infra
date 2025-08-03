@@ -4,7 +4,7 @@
     let 
       aliases = {
         ns = "sudo nixos-rebuild switch --flake ~/configs/infra";
-        hs = "sudo home-manager switch --flake ~/configs/nix-config";
+        hs = "sudo home-manager switch --flake ~/configs/infra";
       };
     in 
     {
