@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager."feature/shell" = 
+  flake.modules.homeManager."feature/tui" = 
     { ... }:
     let 
       aliases = {

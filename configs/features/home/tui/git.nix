@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager."feature/shell" = 
+  flake.modules.homeManager."feature/tui" = 
     { pkgs, userConfig, ... }:
     {
       programs.git = {
@@ -7,5 +7,7 @@
         userName = userConfig.fullname;
         userEmail = userConfig.email;
       };
+
+      programs.lazygit.enable = true;
     };
 }
