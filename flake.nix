@@ -14,8 +14,8 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     # sops-nix
-    # sops-nix.url = "github:Mic92/sops-nix";
-    # sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # # hyperland
     # hyprland.url = "github:hyprwm/Hyprland";
