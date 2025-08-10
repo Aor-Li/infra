@@ -15,6 +15,7 @@ in
       ];
       wsl = {
         enable = true;
+        useWindowsDriver = true;
         startMenuLaunchers = true;
         defaultUser = hostConfig.owner.username;
         wslConf.automount.root = "/mnt";
