@@ -25,6 +25,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     systems.url = "github:nix-systems/default";
+    nixowos.url = "github:yunfachi/nixowos";
 
     # import local flakes
     lazyvim.url = "path:./flakes/lazyvim";
