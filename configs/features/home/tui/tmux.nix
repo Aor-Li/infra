@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager."feature/tui" = 
+  flake.modules.homeManager."feature/tui" =
     { pkgs, ... }:
     {
       programs.tmux = {
@@ -51,6 +51,8 @@
 
           # renumber when window closed
           set -g renumber-window on
+
+          set -sg escape-time 100
 
           # plugins: catppuccin
           set -g @catppuccin_flavor "mocha"
