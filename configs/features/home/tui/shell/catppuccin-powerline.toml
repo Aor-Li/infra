@@ -28,6 +28,7 @@ $time\
 [ ](fg:lavender)\
 $cmd_duration\
 $line_break\
+$nix_shell\
 $character"""
 
 palette = 'catppuccin_mocha'
@@ -59,7 +60,7 @@ Raspbian = "󰐿"
 Mint = "󰣭"
 Macos = "󰀵"
 Manjaro = ""
-Linux = "󰌽"
+Linux = ""
 Gentoo = "󰣨"
 Fedora = "󰣛"
 Alpine = ""
@@ -71,7 +72,7 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
-NixOS = " "
+NixOS = ""
 
 [hostname]
 style = "bg:peach fg:crust"
@@ -160,6 +161,13 @@ disabled = false
 time_format = "%R"
 style = "bg:lavender"
 format = '[[  $time ](fg:crust bg:lavender)]($style)'
+
+[nix_shell]
+disabled = false
+impure_msg = '[impure shell](fg:crust bg:mauve)'
+pure_msg = '[pure shell](fg:crust bg:mauve)'
+unknown_msg = '[unknown shell](fg:crust bg:mauve)'
+format = 'via [](fg:mauve)[☃️  $state( \($name\)) ](fg:crust bg:mauve)[ ](fg:mauve)'
 
 [line_break]
 disabled = true
