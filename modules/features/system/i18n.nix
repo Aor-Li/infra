@@ -14,5 +14,6 @@ in
           "ntp.tencent.com" # Tencent NTP Server
         ];
       };
+    homeManager.${name} = { ... }: { };
   };
 }

@@ -1,10 +1,11 @@
 { config, ... }:
+let
+  name = "host/common";
+in
 {
-  flake.modules.homeManager."home/common" = 
-    { ... }: 
-    {
-      imports = [
-        config.flake.modules.homeManager."feature/base"
-      ];
-    };
+  flake.modules.nixos.${name} = {
+    imports = [
+      config.flake.modules.nixos."feature/system"
+    ];
+  };
 }

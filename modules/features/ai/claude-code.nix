@@ -7,7 +7,7 @@ in
     nixos.${name} =
       { pkgs, ... }:
       {
-        environment.systemPackages = [
+        environment.systempackages = [
           pkgs.claude-code
         ];
       };
