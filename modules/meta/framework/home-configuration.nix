@@ -24,7 +24,7 @@ in
             module
           ];
           extraSpecialArgs = {
-            userConfig = config.flake.meta.user.${username} ;
+            userConfig = config.flake.meta.user.${username};
           };
         };
       }

@@ -1,7 +1,7 @@
 {
   config,
-  lib,
   inputs,
+  lib,
   ...
 }:
 let
@@ -24,7 +24,7 @@ in
             { networking = { inherit hostName; }; }
           ];
           specialArgs = {
-            hostConfig = config.flake.meta.machine.${hostName} or {};
+            hostConfig = config.flake.meta.machine.${hostName} or { };
           };
         };
       }
