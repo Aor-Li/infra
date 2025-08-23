@@ -1,9 +1,16 @@
-{ ... }:
+{ inputs, ... }:
 let
   name = "feature/nix/home-manager";
 in
 {
   flake.modules = {
+    nixos.${name} =
+      { ... }:
+      {
+        imports = [
+          inputs.home-manager.nixosModules.home-manager
+        ];
+      };
     homeManager.${name} =
       { userConfig, ... }:
       {

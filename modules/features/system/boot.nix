@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."feature/base" =
+  flake.modules.nixos."feature/system/boot" =
     { ... }:
     {
       boot.loader = {

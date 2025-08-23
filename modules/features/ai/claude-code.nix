@@ -1,6 +1,6 @@
 { ... }:
 let
-  name = "feature/claude-code";
+  name = "feature/ai/claude-code";
 in
 {
   flake.modules = {
