@@ -12,5 +12,6 @@ in
           clash-meta
         ];
       };
+    homeManager.${name} = { ... }: { };
   };
 }
