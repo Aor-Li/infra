@@ -5,5 +5,6 @@
       ./_specifics/specifics.nix
       config.flake.modules.nixos."host/wsl"
     ];
+    nixpkgs.hostPlatform.system = "x86_64-linux";
   };
 }
