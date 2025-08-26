@@ -1,6 +1,6 @@
 {
   flake.modules.nixos."feature/nix/basic" =
-    { ... }:
+    { pkgs, ... }:
     {
       nix.settings.experimental-features = [
         "nix-command"
