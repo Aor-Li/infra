@@ -1,6 +1,11 @@
+{ config, ... }:
+let
+  flake.modules.homeManager."home/gamer" =
+    { ... }:
+    {
+      imports = [ ];
+    };
+in
 {
-  flake.modules.homeManager."home/gamer" = {
-    imports = [
-    ];
-  };
+  inherit flake;
 }

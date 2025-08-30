@@ -24,7 +24,7 @@ in
       {
         name = username;
         value = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
+          pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux"; # todo: 这一行需要移动，为每个机器单独配置
           modules = [
             module
           ];

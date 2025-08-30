@@ -27,8 +27,10 @@ in
           modules = [
             module
             {
-              networking = {
-                hostName = machine;
+              options.infra = lib.mkOption {
+                type = lib.types.attrsOf lib.types.anything;
+                default = { };
+                description = "Meta information for current nixos configuration.";
               };
             }
           ];

@@ -1,8 +1,13 @@
 { config, ... }:
+let
+  flake.modules.homeManager."home/coder" =
+    { ... }:
+    {
+      imports = [
+        config.flake.modules.homeManager."feature/tui"
+      ];
+    };
+in
 {
-  flake.modules.homeManager."home/coder" = {
-    imports = [
-      config.flake.modules.homeManager."feature/tui"
-    ];
-  };
+  inherit flake;
 }
