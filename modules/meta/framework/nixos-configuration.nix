@@ -1,3 +1,8 @@
+/*
+  Create NixOS configurations:
+    - modules: flake.modules.nixos.${machine}, which is defined in modules/profiles/machines/${machine}
+    - setting: flake.meta.machine.${machine}, which will be passed to all NixOS modules as hostConfig
+*/
 {
   config,
   inputs,
@@ -14,17 +19,21 @@ in
     |> lib.mapAttrs' (
       name: module:
       let
-        hostName = lib.removePrefix prefix name;
+        machine = lib.removePrefix prefix name;
       in
       {
-        name = hostName;
+        name = machine;
         value = inputs.nixpkgs.lib.nixosSystem {
           modules = [
             module
-            { networking = { inherit hostName; }; }
+            {
+              networking = {
+                hostName = machine;
+              };
+            }
           ];
           specialArgs = {
-            hostConfig = config.flake.meta.machine.${hostName} or { };
+            hostConfig = config.flake.meta.machine.${machine} or { };
           };
         };
       }

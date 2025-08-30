@@ -1,3 +1,8 @@
+/*
+  Create home-manager configurations：
+    - modules：flake.modules.homeManager.${user}, which is defined in modules/profiles/users/${user}
+    - setting: flake.meta.user.${user}, which will be passed to all homeManager modules as userConfig
+*/
 {
   config,
   inputs,
