@@ -18,7 +18,7 @@ let
       imports = [
         config.flake.modules.nixos."feature/system"
       ];
-      networking.hostName = hostConfig.name;
+
     };
 in
 {

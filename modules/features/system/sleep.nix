@@ -6,7 +6,7 @@ in
   flake.modules.nixos.${name} =
     { config, lib, ... }:
     {
-      options.infra.${name}.sleep.mode = lib.mkOption {
+      options.infra.${name}.mode = lib.mkOption {
         type = lib.types.enum [
           "normal"
           "never"

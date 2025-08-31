@@ -4,11 +4,9 @@ let
 in
 {
   flake.modules.nixos.${name} =
-    { config, lib, ... }:
+    { ... }:
     {
-      options.infra.${name}.enable = lib.mkEnableOption "Enable system boot (for physical machines)";
-
-      config.boot.loader = lib.mkIf config.infra.${name}.enable {
+      boot.loader = {
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;
       };
