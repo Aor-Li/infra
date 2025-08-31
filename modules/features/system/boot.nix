@@ -1,6 +1,8 @@
 { ... }:
 let
   name = "feature/system/boot";
+in
+{
   flake.modules.nixos.${name} =
     { config, lib, ... }:
     {
@@ -11,7 +13,4 @@ let
         efi.canTouchEfiVariables = true;
       };
     };
-in
-{
-  inherit flake;
 }

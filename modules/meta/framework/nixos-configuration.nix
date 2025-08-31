@@ -28,9 +28,9 @@ in
             module
             {
               options.infra = lib.mkOption {
-                type = lib.types.attrsOf lib.types.anything;
+                type = lib.types.submodule { };
                 default = { };
-                description = "Meta information for current nixos configuration.";
+                description = "Infrastructure configuration options for nixos.";
               };
             }
           ];

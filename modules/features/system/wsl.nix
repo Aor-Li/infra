@@ -1,10 +1,10 @@
 { config, inputs, ... }:
 let
-  inherit (config) flake;
+  name = "feature/system/wsl";
 in
 {
-  flake.modules.nixos."host/wsl" =
-    { config, lib, hostConfig, ... }:
+  flake.modules.nixos.${name} =
+    { ... }:
     let
       inherit (config.networking) hostName;
     in

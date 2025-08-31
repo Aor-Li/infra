@@ -6,6 +6,7 @@ let
         config.flake.modules.nixos."host/server"
         ./_specifics/hardware-configuration.nix
       ];
+      nixpkgs.hostPlatform.system = "x86_64-linux";
     };
 
     meta.machine.Chimi = {

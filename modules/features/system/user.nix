@@ -1,21 +1,24 @@
 { ... }:
 let
   name = "feature/system/user";
-in
+  in
 {
-  flake.modules = {
-    nixos.${name} =
-      { hostConfig, ... }:
-      {
-        users.users.${hostConfig.owner.username} = {
-          isNormalUser = true;
-          initialPassword = "";
-          extraGroups = [
-            "wheel"
-            "networkmanager"
-          ];
-        };
+  flake.modules.nixos.${name} =
+    { config, options, lib, ... }:
+    {
+      options.infra.${name}.defaultUser = lib.mkOption {
+        type = lib.types.str;
+        default = "aor";
+        description = "Default user for the system";
       };
-    homeManager.${name} = { ... }: { };
+      users.users.${config.infra.${name}.defaultUser} = {
+        isNormalUser = true;
+        initialPassword = "";
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+        ];
+      };
+    };
   };
 }

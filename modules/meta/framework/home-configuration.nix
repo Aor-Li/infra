@@ -27,6 +27,13 @@ in
           pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux"; # todo: 这一行需要移动，为每个机器单独配置
           modules = [
             module
+            {
+              options.infra = lib.mkOption {
+                type = lib.types.submodule { };
+                default = { };
+                description = "Infrastructure configuration options for home-manager.";
+              };
+            }
           ];
           extraSpecialArgs = {
             userConfig = config.flake.meta.user.${username};
