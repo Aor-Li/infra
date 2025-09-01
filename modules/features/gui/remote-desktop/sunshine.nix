@@ -1,5 +1,9 @@
+{ ... }:
+let
+  name = "feature/gui/remote_desktop";
+in
 {
-  flake.modules.nixos."feature/remote_desktop" =
+  flake.modules.nixos.${name} =
     { pkgs, ... }:
     {
       environment.systemPackages = [

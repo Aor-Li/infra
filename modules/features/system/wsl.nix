@@ -25,7 +25,7 @@ in
           startMenuLaunchers = true;
           wslConf.automount.root = "/mnt";
           #defaultUser = defaultUser;
-          #wslConf.network.hostname = hostName;
+          #
         };
 
         # disable default boot

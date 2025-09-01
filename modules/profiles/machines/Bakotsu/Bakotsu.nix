@@ -10,6 +10,7 @@ let
     };
     meta.machine.Bakotsu = {
       name = "Bakotsu";
+      description = "Bakotsu is a wsl nixos system on my safe-pc at work.";
       owner = {
         name = "Aor-Li";
         username = "aor";

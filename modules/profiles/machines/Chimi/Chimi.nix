@@ -11,6 +11,7 @@ let
 
     meta.machine.Chimi = {
       name = "Chimi";
+      description = "Chimi is a nixos server running in a mini-pc at home.";
       owner = {
         name = "Aor-Li";
         username = "aor";

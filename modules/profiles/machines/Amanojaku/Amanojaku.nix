@@ -11,6 +11,7 @@ let
       };
     meta.machine.Amanojaku = {
       name = "Amanojaku";
+      description = "Amanojaku is a wsl nixos system on my win11 pc with nvdia gpu.";
       owner = {
         name = "Aor-Li";
         username = "aor";

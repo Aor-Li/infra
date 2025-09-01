@@ -1,8 +1,11 @@
 { ... }:
 let
+  name = "feature/network/tailscale";
   tailscale_port = 41641;
-  flake.modules.nixos."feature/network" =
-    { config, pkgs, ... }:
+in
+{
+  flake.modules.nixos.${name} =
+    { pkgs, ... }:
     {
       # enable tailscale
       environment.systemPackages = [ pkgs.tailscale ];
@@ -19,7 +22,4 @@ let
       # add to the firewall allowed ports
       networking.firewall.allowedUDPPorts = [ tailscale_port ];
     };
-in
-{
-  inherit flake;
 }
