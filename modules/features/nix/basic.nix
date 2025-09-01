@@ -17,10 +17,10 @@
       };
 
       nix.settings.substituters = [
-        #"https://cuda-maintainers.cachix.org"
         "https://mirror.sjtu.edu.cn/nix-channels/store"
         "https://mirrors.ustc.edu.cn/nix-channels/store"
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+        #"https://cuda-maintainers.cachix.org"
       ];
 
       nix.settings.trusted-public-keys = [
