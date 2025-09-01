@@ -33,7 +33,6 @@ in
                 default = { };
                 description = "Infrastructure configuration options for home-manager.";
               };
-              
             }
           ];
           extraSpecialArgs = {
