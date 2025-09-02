@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 let
   name = "feature/ai/claude-code";
 in
@@ -7,8 +7,9 @@ in
     nixos.${name} =
       { pkgs, ... }:
       {
-        environment.systemPackages = [
-          pkgs.claude-code
+        environment.systemPackages = with inputs.nix-ai-tools.packages.${pkgs.system}; [
+          claude-code
+          claude-code-router
         ];
       };
     homeManager.${name} = { ... }: { };

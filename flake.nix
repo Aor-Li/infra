@@ -21,6 +21,9 @@
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
+    # ai
+    nix-ai-tools.url = "github:numtide/nix-ai-tools";
+
     # nix utilities
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
