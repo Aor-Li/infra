@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  name = "feature/nix/secret";
+  name = "internal/nix/secret";
 in
 {
   flake.modules = {

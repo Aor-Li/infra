@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."feature/nix/nix-index" =
+  flake.modules.nixos."internal/nix/nix-index" =
     { ... }:
     {
       programs.nix-index = {
