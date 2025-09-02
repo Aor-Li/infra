@@ -10,6 +10,9 @@ in
       lib,
       ...
     }:
+    let
+      isWSL = config.infra."feature/system/wsl".enable;
+    in
     {
       options.infra.${name}.name = lib.mkOption {
         type = lib.types.str;
@@ -17,11 +20,12 @@ in
         description = "The hostname of the machine.";
       };
 
-      config.networking.hostName = config.infra.${name}.name;
       config = lib.mkMerge [
-        { }
-        (lib.mkIf config.wsl.enable {
+        { networking.hostName = config.infra.${name}.name; }
+
+        (lib.mkIf isWSL {
           wsl.wslConf.network.hostname = config.infra.${name}.name;
         })
       ];
+    };
 }

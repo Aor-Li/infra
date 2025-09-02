@@ -10,6 +10,9 @@ in
       hostConfig,
       ...
     }:
+    let
+      isWSL = config.infra."feature/system/wsl".enable;
+    in
     {
       # settings for default user
       options.infra.${name}.defaultUser = lib.mkOption {
@@ -17,28 +20,26 @@ in
         default = hostConfig.owner.username;
         description = "Default user for the system";
       };
-      config = {
+      config = lib.mkMerge [
         # user setting for basic system
-        users.users.${config.infra.${name}.defaultUser} = {
-          isNormalUser = true;
-          initialPassword = "";
-          extraGroups = [
-            "wheel"
-            # todo: extra groups should be set in required feature module
-            "networkmanager"
-          ];
-        };
+        {
+          users.users.${config.infra.${name}.defaultUser} = {
+            isNormalUser = true;
+            initialPassword = "";
+            extraGroups = [
+              "wheel"
+              # todo: extra groups should be set in required feature module
+              "networkmanager"
+            ];
+          };
+        }
 
-        # user setting for wsl
-        # Only set wsl.defaultUser if WSL is enabled
-        # See: https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/wsl.nix
-        # and https://nixos.org/manual/nixos/stable/options.html#wsl.defaultUser
-        # This prevents errors on non-WSL systems.
-        # Use mkIf to conditionally set the option.
-        (lib.mkIf config.wsl.enable {
+        # user setting for WSL
+        (lib.mkIf isWSL {
           wsl.defaultUser = config.infra.${name}.defaultUser;
         })
-      };
+
+      ];
 
       # todo: add settings for other users
     };
