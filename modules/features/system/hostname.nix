@@ -18,6 +18,10 @@ in
       };
 
       config.networking.hostName = config.infra.${name}.name;
-      config.wsl.wslConf.network.hostname = config.infra.${name}.name;
-    };
+      config = lib.mkMerge [
+        { }
+        (lib.mkIf config.wsl.enable {
+          wsl.wslConf.network.hostname = config.infra.${name}.name;
+        })
+      ];
 }
