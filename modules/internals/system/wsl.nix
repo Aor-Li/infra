@@ -24,8 +24,6 @@ in
           useWindowsDriver = true;
           startMenuLaunchers = true;
           wslConf.automount.root = "/mnt";
-          #defaultUser = defaultUser;
-          #
         };
 
         # disable default boot
