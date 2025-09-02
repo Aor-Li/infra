@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  name = "feature/system";
+  name = "private/nix";
 in
 {
   flake.modules = {

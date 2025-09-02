@@ -1,33 +1,27 @@
 { inputs, ... }:
 let
-  name = "feature/system/wsl";
+  name = "private/system/wsl";
 in
 {
   flake.modules.nixos.${name} =
-    {
-      config,
-      options,
-      lib,
-      ...
-    }:
+    { lib, hostConfig, ... }:
     {
       imports = [
         inputs.nixos-wsl.nixosModules.default
       ];
 
-      options.infra.${name}.enable =
-        lib.mkEnableOption "Enable wsl boot (override boot for physical machines)";
-
-      config = lib.mkIf config.infra.${name}.enable {
+      config = lib.mkIf (hostConfig.type == "wsl") {
         wsl = {
           enable = true;
           useWindowsDriver = true;
           startMenuLaunchers = true;
+          defaultUser = hostConfig.owner.username;
           wslConf.automount.root = "/mnt";
+          wslConf.network.hostname = hostConfig.name;
         };
 
         # disable default boot
-        boot.loader = lib.mkIf config.infra.${name}.enable {
+        boot.loader = {
           systemd-boot.enable = lib.mkForce false;
           efi.canTouchEfiVariables = lib.mkForce false;
         };

@@ -1,12 +1,11 @@
 { config, ... }:
 let
   flake.modules.nixos."host/wsl" =
-    { ... }:
+    { hostConfig, ... }:
     {
       imports = [
         config.flake.modules.nixos."host/common"
       ];
-      infra."feature/system/wsl".enable = true;
     };
 in
 {

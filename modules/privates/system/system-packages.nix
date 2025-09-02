@@ -1,5 +1,9 @@
+{ ... }:
+let
+  name = "private/system/system-packages";
+in
 {
-  flake.modules.nixos."feature/system/base" =
+  flake.modules.nixos.${name} =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
@@ -8,7 +12,5 @@
         htop
         wget
       ];
-      environment.variables.EDITOR = "vim";
-      system.stateVersion = "25.11";
     };
 }

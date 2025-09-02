@@ -1,6 +1,6 @@
 { ... }:
 let
-  name = "internal/nix/format";
+  name = "private/nix/format";
 in
 {
   flake.modules.nixos.${name} =

@@ -12,6 +12,7 @@ let
     meta.machine.Amanojaku = {
       name = "Amanojaku";
       description = "Amanojaku is a wsl nixos system on my win11 pc with nvdia gpu.";
+      type = "wsl";
       owner = {
         name = "Aor-Li";
         username = "aor";

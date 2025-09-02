@@ -1,6 +1,6 @@
 { ... }:
 let
-  name = "feature/system/boot";
+  name = "private/system/boot";
 in
 {
   flake.modules.nixos.${name} =

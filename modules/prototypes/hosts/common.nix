@@ -4,8 +4,8 @@ let
     { ... }:
     {
       imports = [
-        config.flake.modules.nixos."feature/system"
-        config.flake.modules.nixos."internal/nix"
+        config.flake.modules.nixos."private/system"
+        config.flake.modules.nixos."private/nix"
       ];
     };
 in

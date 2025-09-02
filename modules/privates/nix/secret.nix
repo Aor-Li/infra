@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  name = "internal/nix/secret";
+  name = "private/nix/secret";
 in
 {
   flake.modules = {
