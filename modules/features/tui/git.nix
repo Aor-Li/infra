@@ -9,9 +9,9 @@ in
       {
         programs.git = {
           enable = true;
+          userName = userConfig.fullname;
+          userEmail = userConfig.email;
           extraConfig = {
-            user.name = userConfig.fullname;
-            user.email = userConfig.email;
             http.sslVerify = false;
             https.sslVerify = false;
           };
