@@ -30,7 +30,14 @@ in
         };
 
         # user setting for wsl
-        wsl.defaultUser = config.infra.${name}.defaultUser;
+        # Only set wsl.defaultUser if WSL is enabled
+        # See: https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/wsl.nix
+        # and https://nixos.org/manual/nixos/stable/options.html#wsl.defaultUser
+        # This prevents errors on non-WSL systems.
+        # Use mkIf to conditionally set the option.
+        (lib.mkIf config.wsl.enable {
+          wsl.defaultUser = config.infra.${name}.defaultUser;
+        })
       };
 
       # todo: add settings for other users
