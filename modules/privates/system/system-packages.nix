@@ -11,6 +11,7 @@ in
         git
         htop
         wget
+        tree
       ];
     };
 }

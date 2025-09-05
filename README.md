@@ -1,44 +1,51 @@
-# infra
-My personal device infrastructure configuration, refactored for the following characteristics:
-- Support flexible expansion of users and hosts
-- Support both traditional module systems and Dendrix pattern based on flake-parts
+# Aor/Infra
+This is my personal multi-user multi-machine monorepo infrastructure based on nix and home-manager.
+
+- The module system is based on [flake-parts](https://github.com/hercules-ci/flake-parts).
+
+- The framework is inspired from the [Dendritic](https://github.com/mightyiam/dendritic) pattern.
+
+- Of course, it includes some of my own unique interpretations and designs.
 
 ## 1. Structure
 
-Overall structure of the nix infrastructure:
+The structure of the overall infrastructure includes several aspects:
 
-``` markdown
+### 1.1 Directory Structure
+
+```
 .
-├── configs             # system configs
-│   ├── machines        # configurations for certain machine
-│   │   ├── Amanojaku   # desktop/win11/wsl2/nixos with CUDA as my major work-station (transfer to nixos later)
-│   │   ├── Bakotsu     # desktop/win11/wsl2/nixos in my company safe-pc
-│   │   └── Chimi       # mini-pc/nixos as a server
-│   ├── homes           # configurations prototypes for home-manager
-│   │   └── aor
-│   ├── hosts           # configurations prototypes for host
-│   │   ├── common
-│   │   ├── desktop
-│   │   ├── server
-│   │   └── wsl
-│   └──modules         # function modules
-│       ├── home
-│       ├── nixos
-│       └── flakes
-│
-├── flakes      # customed flakes
-├── libs        # customed nix utils
-├── pkgs        # customed packages
-├── devs        # customed dev environments
-├── overlays    # customed overlays
-├── templates   # templates used to create new modules
-└── README.md
+├── flake.lock
+├── flake.nix               # Main flake entry point
+├── modules/                # All auto-import modules
+│   ├── metas/                  # Meta-configuration and framework setup
+│   │   ├── flake-parts/            # Flake-parts feature modules
+│   │   └── framework/              # Framework definitions
+│   ├── features/               # Feature-specific modules
+│   ├── privates/               # Private module and configurations
+│   │   ├── nix/
+│   │   └── system/
+│   ├── prototypes/             # Reusable configuration templates combined with features
+│   │   ├── homes/                  # Home-manager templates
+│   │   └── hosts/                  # Nixos templates
+│   └── profiles/               # Concrete machine and user profiles
+│       ├── machines/               # Machine-specific configurations
+│       │   ├── Amanojaku/              # Primary PC (Win11/WSL2/NixOS + CUDA)
+│       │   ├── Bakotsu/                # Company secure PC (Win11/WSL2/NixOS)
+│       │   └── Chimi/                  # Mini-PC server (NixOS)
+│       └── users/                  # User-specific configurations
+│           └── aor/                    # Personal user profile
+├── flakes/                 # Custom flakes definitions
+├── overlays/               # Custom overlays definitions
+├── devshells/              # Development environments
+├── README.md
+└── TODO.md
 ```
 
-Details:
-### flake.nix
-Global entry that imports all nix files within the repo with ```import-tree```.
+Details of each sub-directory would be introduced later.
 
-### configs
-Specific machine configurations. Currently 
 
+### 1.2 Module System Structure
+Similar to typical Dendritic patterns, all Nix files in the `modules` directory are automatically imported, meaning their physical location does not affect the build outcome. However, the entire architecture system is organized through hierarchical naming of flake-parts modules, which inherently maintains a consistent directory structure across the system. 
+
+The overall module structure are shown below.
