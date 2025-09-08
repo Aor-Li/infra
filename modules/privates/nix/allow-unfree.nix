@@ -4,8 +4,13 @@ let
 in
 {
   flake.modules.nixos.${name} =
-    { pkgs, ... }:
+    { ... }:
     {
       nixpkgs.config.allowUnfree = true;
+    };
+  flake.modules.homeManager.${name} =
+    { pkgs, ... }:
+    {
+      nixpkgs.config.allowUnfreePredicate = _: true;
     };
 }
