@@ -1,0 +1,23 @@
+{ ... }:
+let
+  name = "private/system/fonts";
+in
+{
+  flake.modules.nixos.${name} =
+    { pkgs, ... }:
+    {
+      fonts.fonts = with pkgs; [
+        # notos
+        noto-fonts
+        noto-fonts-extra
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+
+        # nerd-fonts
+        nerd-fonts.monaspace
+        nerd-fonts.caskaydia-cove
+      ];
+
+      
+    };
+}
