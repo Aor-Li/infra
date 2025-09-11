@@ -9,5 +9,6 @@ in
       programs.obsidian = {
         enable = true;
       };
+      # todo: currently obsidian is set in ui interface, and plugin install seems worked just fine.
     };
 }
