@@ -4,3 +4,8 @@ result-*
 
 # Ignore automatically generated direnv output
 .direnv
+
+# Ignore devshell src and builds
+devshells/*
+!devshells/**/flake.nix
+!devshells/**/flake.lock
