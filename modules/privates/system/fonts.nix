@@ -6,7 +6,7 @@ in
   flake.modules.nixos.${name} =
     { pkgs, ... }:
     {
-      fonts.fonts = with pkgs; [
+      fonts.packages = with pkgs; [
         # notos
         noto-fonts
         noto-fonts-extra
@@ -17,7 +17,5 @@ in
         nerd-fonts.monaspace
         nerd-fonts.caskaydia-cove
       ];
-
-      
     };
 }
